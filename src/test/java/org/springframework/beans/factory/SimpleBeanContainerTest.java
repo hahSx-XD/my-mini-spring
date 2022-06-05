@@ -2,8 +2,8 @@ package org.springframework.beans.factory;
 
 
 import org.junit.Test;
-import org.service.HelloService;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertNotNull;
 
 
 /**
@@ -21,6 +21,13 @@ public class SimpleBeanContainerTest {
         beanFactory.registerBean("helloService", new HelloService());
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         assertNotNull(helloService);
+    }
+    
+    class HelloService {
+        public String sayHello() {
+            System.out.println("hello");
+            return "hello";
+        }
     }
     
 }
