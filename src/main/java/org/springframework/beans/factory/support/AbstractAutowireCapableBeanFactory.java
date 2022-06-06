@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanReference;
 
 /**
  * 自动注入功能的 bean 容器
@@ -64,6 +65,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             for (PropertyValue propertyValue : beanDefinition.getPropertyValues().getPropertyValues()) {
                 String name = propertyValue.getName();
                 Object value = propertyValue.getValue();
+                
+                //判断是否有 bean 依赖（instanceof: 判断左右的对象是否为右边类的实例）
+                if (value instanceof BeanReference) {
+                    //beanA 依赖 beanB，需要先实例化 beanB
+                    BeanReference beanReference = (BeanReference) value;
+                    value = getBean(beanReference.getBeanName());
+                }
                 
                 //反射注入属性
                 BeanUtil.setFieldValue(bean, name, value);
