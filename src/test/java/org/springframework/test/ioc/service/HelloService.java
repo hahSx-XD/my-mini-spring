@@ -1,4 +1,4 @@
-package org.springframework.test.ioc;
+package org.springframework.test.ioc.service;
 
 /**
  * 测试用 Service 类

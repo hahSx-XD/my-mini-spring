@@ -1,5 +1,7 @@
 package org.springframework.beans.factory.config;
 
+import org.springframework.beans.PropertyValues;
+
 /**
  * 定义 Bean 的信息类
  *
@@ -13,10 +15,6 @@ public class BeanDefinition {
     //简化版只包含 class 信息
     private Class beanClass;
     
-    public BeanDefinition(Class beanClass) {
-        this.beanClass = beanClass;
-    }
-    
     public Class getBeanClass() {
         return beanClass;
     }
@@ -25,4 +23,22 @@ public class BeanDefinition {
         this.beanClass = beanClass;
     }
     
+    private PropertyValues propertyValues;
+    
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+    
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
+    }
+    
+    public BeanDefinition(Class beanClass) {
+        this.beanClass = beanClass;
+    }
+    
+    public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
+        this.beanClass = beanClass;
+        this.propertyValues = propertyValues;
+    }
 }

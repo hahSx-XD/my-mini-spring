@@ -1,6 +1,8 @@
 package org.springframework.beans.factory.support;
 
+import cn.hutool.core.bean.BeanUtil;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.config.BeanDefinition;
 
 /**
@@ -33,6 +35,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         try {
             //bean = beanClass.newInstance();
             bean = createBeanInstance(beanDefinition);
+            //为 bean 填充属性
+            applyPropertyValues(beanName, bean, beanDefinition);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed", e);
         }
@@ -43,5 +47,29 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     
     protected Object createBeanInstance(BeanDefinition beanDefinition) {
         return getInstantiationStrategy().instantiate(beanDefinition);
+    }
+    
+    /**
+     * 为 bean 填充属性
+     *
+     * @Param: beanName
+     * @Param: bean
+     * @Param: beanDefinition
+     * @ReturnType: void
+     * @Author: Cai 🥬
+     * @Date: 2022/6/6 20:02
+     */
+    public void applyPropertyValues(String beanName, Object bean, BeanDefinition beanDefinition) {
+        try {
+            for (PropertyValue propertyValue : beanDefinition.getPropertyValues().getPropertyValues()) {
+                String name = propertyValue.getName();
+                Object value = propertyValue.getValue();
+                
+                //反射注入属性
+                BeanUtil.setFieldValue(bean, name, value);
+            }
+        } catch (Exception e) {
+            throw new BeansException("Error setting property values for bean: " + beanName, e);
+        }
     }
 }
