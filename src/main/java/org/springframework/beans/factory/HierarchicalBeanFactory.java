@@ -5,5 +5,5 @@ package org.springframework.beans.factory;
  * @Date: 2022-06-07 11:05
  * @Version: 1.0
  */
-public interface HierarchicalBeanFactory {
+public interface HierarchicalBeanFactory extends BeanFactory {
 }

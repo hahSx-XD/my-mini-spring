@@ -1,8 +1,8 @@
 package org.springframework.beans.factory.support;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.util.Set;
  * @Version: 1.0
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
-        implements BeanDefinitionRegistry, ConfigurableBeanFactory {
+        implements BeanDefinitionRegistry, ConfigurableListableBeanFactory {
     
     private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
     
@@ -31,6 +31,19 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     @Override
     public boolean containsBeanDefinition(String beanName) {
         return beanDefinitionMap.containsKey(beanName);
+    }
+    
+    @Override
+    public <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException {
+        Map<String, T> result = new HashMap<>();
+        beanDefinitionMap.forEach((beanName, BeanDefinition) -> {
+            Class beanClass = BeanDefinition.getBeanClass();
+            if (type.isAssignableFrom(beanClass)) {
+                T bean = (T) getBean(beanName);
+                result.put(beanName, bean);
+            }
+        });
+        return result;
     }
     
     @Override

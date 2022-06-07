@@ -9,7 +9,7 @@ import java.util.Map;
  * @Date: 2022-06-07 11:09
  * @Version: 1.0
  */
-public interface ListableBeanFactory {
+public interface ListableBeanFactory extends BeanFactory {
     
     /**
      * 返回指定类型的所有实例
@@ -19,7 +19,7 @@ public interface ListableBeanFactory {
      * @Author: Cai 🥬
      * @Date: 2022/6/7 11:10
      */
-    <T> Map<String, T> getBeansOgType(Class<T> type) throws BeansException;
+    <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException;
     
     /**
      * 返回所有定义过的 bean 名称
