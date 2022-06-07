@@ -3,6 +3,7 @@ package org.springframework.beans.factory.support;
 import cn.hutool.core.bean.BeanUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValue;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanReference;
 
@@ -13,7 +14,8 @@ import org.springframework.beans.factory.config.BeanReference;
  * @Date: 2022-06-05 15:48
  * @Version: 1.0
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
+        implements AutowireCapableBeanFactory {
     
     private InstantiationStrategy instantiationStrategy = new SimpleInstantiationStrategy();
     
@@ -41,11 +43,19 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean failed", e);
         }
-        
+    
         addSingleton(beanName, bean);
         return bean;
     }
     
+    /**
+     * 实例化 bean
+     *
+     * @Param: beanDefinition
+     * @ReturnType: java.lang.Object
+     * @Author: Cai 🥬
+     * @Date: 2022/6/7 11:19
+     */
     protected Object createBeanInstance(BeanDefinition beanDefinition) {
         return getInstantiationStrategy().instantiate(beanDefinition);
     }

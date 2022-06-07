@@ -34,11 +34,13 @@ public class BeanDefinition {
     }
     
     public BeanDefinition(Class beanClass) {
-        this.beanClass = beanClass;
+        //字段 propertyValues 不能为 null
+        this(beanClass, null);
     }
     
     public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
         this.beanClass = beanClass;
-        this.propertyValues = propertyValues;
+        ////字段 propertyValues 不能为 null
+        this.propertyValues = propertyValues == null ? new PropertyValues() : propertyValues;
     }
 }
