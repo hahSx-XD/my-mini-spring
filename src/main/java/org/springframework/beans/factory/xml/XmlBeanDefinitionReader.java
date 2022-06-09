@@ -42,6 +42,14 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
         super(registry, resourceLoader);
     }
     
+    /**
+     * 使用资源加载器获得对应类型的资源
+     *
+     * @Param: location
+     * @ReturnType: void
+     * @Author: Cai 🥬
+     * @Date: 2022/6/9 11:23
+     */
     @Override
     public void loadBeanDefinitions(String location) throws BeansException {
         ResourceLoader resourceLoader = getResourceLoader();
@@ -49,6 +57,14 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
         loadBeanDefinitions(resource);
     }
     
+    /**
+     * 读取资源配置信息去注册 bean
+     *
+     * @Param: resource
+     * @ReturnType: void
+     * @Author: Cai 🥬
+     * @Date: 2022/6/9 11:25
+     */
     @Override
     public void loadBeanDefinitions(Resource resource) throws BeansException {
         try {
@@ -57,7 +73,6 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
         } catch (IOException e) {
             throw new BeansException("IOException parsing XML document from " + resource, e);
         }
-        
     }
     
     protected void doLoadBeanDefinitions(InputStream inputStream) {

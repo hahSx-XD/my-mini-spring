@@ -5,7 +5,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 /**
- * 读取 bean 定义信息（B恶案Definition）的接口
+ * 读取 bean 定义信息（BeanDefinition）的接口
  *
  * @Author: Cai 🥬
  * @Date: 2022-06-07 19:09
