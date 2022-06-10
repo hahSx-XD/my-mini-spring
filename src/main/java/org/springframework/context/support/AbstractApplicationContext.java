@@ -19,6 +19,14 @@ import java.util.Map;
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
     
+    /**
+     * 刷新容器
+     *
+     * @Param:
+     * @ReturnType: void
+     * @Author: Cai 🥬
+     * @Date: 2022/6/10 16:54
+     */
     @Override
     public void refresh() throws BeansException {
         //创建 BeanFactory，并加载 BeanDefinition
