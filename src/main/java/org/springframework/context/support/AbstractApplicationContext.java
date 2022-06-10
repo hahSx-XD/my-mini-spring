@@ -2,6 +2,8 @@ package org.springframework.context.support;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.DefaultResourceLoader;
 
@@ -54,7 +56,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
      * @Date: 2022/6/10 14:04
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
-    
+        Map<String, BeanFactoryPostProcessor> beanFactoryPostProcessorMap = beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);
+        for (BeanFactoryPostProcessor beanFactoryPostProcessor : beanFactoryPostProcessorMap.values()) {
+            beanFactoryPostProcessor.postProcessorBeanFactory(beanFactory);
+        }
     }
     
     /**
@@ -66,7 +71,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
      * @Date: 2022/6/10 14:06
      */
     protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory) {
-    
+        Map<String, BeanPostProcessor> beanPostProcessorMap = beanFactory.getBeansOfType(BeanPostProcessor.class);
+        for (BeanPostProcessor beanPostProcessor : beanPostProcessorMap.values()) {
+            beanFactory.addBeanPostProcessor(beanPostProcessor);
+        }
     }
     
     @Override
