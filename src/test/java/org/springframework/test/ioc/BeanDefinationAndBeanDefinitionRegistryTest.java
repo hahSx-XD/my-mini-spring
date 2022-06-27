@@ -16,7 +16,7 @@ public class BeanDefinationAndBeanDefinitionRegistryTest {
     public void testBeanFactory() throws Exception {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         BeanDefinition beanDefinition = new BeanDefinition(HelloService.class);
-        beanFactory.registryBeanDefinition("helloService", beanDefinition);
+        beanFactory.registerBeanDefinition("helloService", beanDefinition);
         
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         helloService.sayHello();

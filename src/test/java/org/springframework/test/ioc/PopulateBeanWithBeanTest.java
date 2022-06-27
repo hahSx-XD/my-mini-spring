@@ -28,7 +28,7 @@ public class PopulateBeanWithBeanTest {
         PropertyValues carPropertyValues = new PropertyValues();
         carPropertyValues.addPropertyValue(new PropertyValue("brand", "benZ"));
         BeanDefinition carBeanDefinition = new BeanDefinition(Car.class, carPropertyValues);
-        beanFactory.registryBeanDefinition("car", carBeanDefinition);
+        beanFactory.registerBeanDefinition("car", carBeanDefinition);
         
         //注册 Person 实例
         PropertyValues personPropertyValues = new PropertyValues();
@@ -37,7 +37,7 @@ public class PopulateBeanWithBeanTest {
         //Person 实例依赖 Car 实例
         personPropertyValues.addPropertyValue(new PropertyValue("car", new BeanReference("car")));
         BeanDefinition personBeanDefinition = new BeanDefinition(Person.class, personPropertyValues);
-        beanFactory.registryBeanDefinition("person", personBeanDefinition);
+        beanFactory.registerBeanDefinition("person", personBeanDefinition);
     
         Person person = (Person) beanFactory.getBean("person");
         System.out.println(person);

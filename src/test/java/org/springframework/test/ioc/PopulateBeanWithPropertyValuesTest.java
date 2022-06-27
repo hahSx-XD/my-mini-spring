@@ -26,7 +26,7 @@ public class PopulateBeanWithPropertyValuesTest {
         propertyValues.addPropertyValue(new PropertyValue("name", "cai"));
         propertyValues.addPropertyValue(new PropertyValue("age", 22));
         BeanDefinition beanDefinition = new BeanDefinition(Person.class, propertyValues);
-        beanFactory.registryBeanDefinition("person", beanDefinition);
+        beanFactory.registerBeanDefinition("person", beanDefinition);
         
         Person person = (Person) beanFactory.getBean("person");
         System.out.println(person);
