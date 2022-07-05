@@ -1,5 +1,8 @@
 package org.springframework.context.event;
 
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+
 /**
  * @Author: Cai 🥬
  * @Date: 2022-07-05 17:35
@@ -7,5 +10,9 @@ package org.springframework.context.event;
  */
 public interface ApplicationEventMulticaster {
     
-    void addApplicationListener()
+    void addApplicationListener(ApplicationListener<?> listener);
+    
+    void removeApplicationListener(ApplicationListener<?> listener);
+    
+    void multicastEvent(ApplicationEvent event);
 }

@@ -4,9 +4,16 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.event.ApplicationEventMulticaster;
+import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.io.DefaultResourceLoader;
 
+import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -18,6 +25,10 @@ import java.util.Map;
  */
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
+    
+    public static final String APPLICATION_EVENT_MULTICASTER_BEAN_NAME = "applicationEventMulticaster";
+    
+    private ApplicationEventMulticaster applicationEventMulticaster;
     
     /**
      * 刷新容器
@@ -42,8 +53,17 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
         //BeanPostProcessor需要提前于其他bean实例化之前注册
         registerBeanPostProcessors(beanFactory);
         
+        //初始化事件发布者
+        initApplicationEventMulticaster();
+        
+        //注册事件监听器
+        registerListeners();
+        
         //提前实例化单例 bean
         beanFactory.preInstantiateSingletons();
+        
+        //发布容器刷新完成事件
+        finishRefresh();
     }
     
     /**
@@ -88,6 +108,52 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
         }
     }
     
+    /**
+     * 初始化事件发布者
+     *
+     * @Param
+     * @Return
+     * @Author Cai 🥬
+     * @Date 2022/7/5 21:45
+     */
+    protected void initApplicationEventMulticaster() {
+        ConfigurableListableBeanFactory beanFactory = getBeanFactory();
+        applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
+        beanFactory.addSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, applicationEventMulticaster);
+    }
+    
+    /**
+     * 注册事件监听器
+     *
+     * @Param
+     * @Return
+     * @Author Cai 🥬
+     * @Date 2022/7/5 21:50
+     */
+    protected void registerListeners() {
+        Collection<ApplicationListener> applicationListeners = getBeansOfType(ApplicationListener.class).values();
+        for (ApplicationListener applicationListener : applicationListeners) {
+            applicationEventMulticaster.addApplicationListener(applicationListener);
+        }
+    }
+    
+    /**
+     * 发布容器刷新完成事件
+     *
+     * @Param
+     * @Return
+     * @Author Cai 🥬
+     * @Date 2022/7/5 21:55
+     */
+    protected void finishRefresh() {
+        publishEvent(new ContextRefreshedEvent(this));
+    }
+    
+    @Override
+    public void publishEvent(ApplicationEvent event) {
+        applicationEventMulticaster.multicastEvent(event);
+    }
+    
     @Override
     public Object getBean(String name) throws BeansException {
         return getBeanFactory().getBean(name);
@@ -123,6 +189,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     }
     
     public void doClose() {
+        //发布容器关闭事件
+        publishEvent(new ContextClosedEvent(this));
+        
+        //执行单例 bean 的销毁方法
         destroyBean();
     }
     
