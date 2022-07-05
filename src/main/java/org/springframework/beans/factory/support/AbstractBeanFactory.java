@@ -47,6 +47,13 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry
         return getObjectForBeanInstance(bean, name);
     }
     
+    /**
+     * 如果是 FactoryBean，从 FactoryBean#getObject 中创建 bean
+     *
+     * @param beanInstance
+     * @param beanName
+     * @return
+     */
     protected Object getObjectForBeanInstance(Object beanInstance, String beanName) {
         Object object = beanInstance;
         if (beanInstance instanceof FactoryBean) {
