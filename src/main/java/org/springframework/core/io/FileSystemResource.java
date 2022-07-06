@@ -26,7 +26,7 @@ public class FileSystemResource implements Resource {
     @Override
     public InputStream getInputStream() throws IOException {
         try {
-            Path path = new File(this.filePath).toPath();
+            Path path = new File(this.filePath).toPath();//Paths.get(filePath);该方法效率低
             return Files.newInputStream(path);
         } catch (NoSuchFileException e) {
             throw new FileNotFoundException(e.getMessage());
