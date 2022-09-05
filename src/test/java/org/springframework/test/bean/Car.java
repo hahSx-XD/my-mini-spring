@@ -1,4 +1,4 @@
-package org.springframework.test.ioc.bean;
+package org.springframework.test.bean;
 
 /**
  * 测试 bean

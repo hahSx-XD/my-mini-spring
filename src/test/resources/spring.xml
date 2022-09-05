@@ -3,19 +3,19 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="org.springframework.test.ioc.bean.Person">
+    <bean id="person" class="org.springframework.test.bean.Person">
         <property name="name" value="ccc"/>
         <property name="age" value="21"/>
         <property name="car" ref="car"/>
     </bean>
-    <bean id="car" class="org.springframework.test.ioc.bean.Car">
+    <bean id="car" class="org.springframework.test.bean.Car">
         <property name="brand" value="Porsche"/>
     </bean>
 
-    <bean class="org.springframework.test.ioc.common.CustomBeanFactoryPostProcessor"/>
+    <bean class="org.springframework.test.common.CustomBeanFactoryPostProcessor"/>
 
-    <bean class="org.springframework.test.ioc.common.CustomBeanPostProcessor"/>
+    <bean class="org.springframework.test.common.CustomBeanPostProcessor"/>
 
-    <bean id="helloService" class="org.springframework.test.ioc.service.HelloService"/>
+    <bean id="helloService" class="org.springframework.test.service.HelloService"/>
 
 </beans>
