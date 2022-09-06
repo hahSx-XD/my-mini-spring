@@ -10,6 +10,10 @@ import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.framework.CglibDynamicAopProxy;
 import org.springframework.aop.framework.JdkDynamicAopProxy;
 import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.framework.adapter.MethodAfterAdviceInterceptor;
+import org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor;
+import org.springframework.test.common.WorldServiceAfterAdvice;
+import org.springframework.test.common.WorldServiceBeforeAdvice;
 import org.springframework.test.common.WorldServiceInterceptor;
 import org.springframework.test.service.WorldService;
 import org.springframework.test.service.WorldServiceImpl;
@@ -61,6 +65,28 @@ public class DynamicProxyTest {
         //cglib动态代理
         advisedSupport.setProxyTargetClass(false);
         proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+        proxy.change();
+    }
+    
+    @Test
+    public void testBeforeAdvice() {
+        //设置 beforeAdvice
+        WorldServiceBeforeAdvice worldServiceBeforeAdvice = new WorldServiceBeforeAdvice();
+        MethodBeforeAdviceInterceptor methodBeforeAdviceInterceptor = new MethodBeforeAdviceInterceptor(worldServiceBeforeAdvice);
+        advisedSupport.setMethodInterceptor(methodBeforeAdviceInterceptor);
+    
+        WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+        proxy.change();
+    }
+    
+    @Test
+    public void testAfterAdvice() {
+        //设置 afterAdvice
+        WorldServiceAfterAdvice worldServiceAfterAdvice = new WorldServiceAfterAdvice();
+        MethodAfterAdviceInterceptor methodAfterAdviceInterceptor = new MethodAfterAdviceInterceptor(worldServiceAfterAdvice);
+        advisedSupport.setMethodInterceptor(methodAfterAdviceInterceptor);
+        
+        WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
         proxy.change();
     }
 }
