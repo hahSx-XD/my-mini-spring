@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="80330f93-2d6d-4ef8-96a7-72f81988548c" name="变更" comment="实现BeforeAdvice/AfterAdvice" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="/usr/local/maven/maven-repository" />
+        <option name="mavenHome" value="/usr/local/maven/apache-maven-3.8.6" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="/usr/local/maven/apache-maven-3.8.6/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="zulu-1.8" />
+        <option name="vmOptionsForImporter" value="-Xms2048m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="zulu-1.8" />
+  </component>
+  <component name="ProjectId" id="2Ap4OK59ehhHCroM8w1ZWXWqkOf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate",
+    "spring.configuration.checksum": "d41d8cd98f00b204e9800998ecf8427e",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.springframework.test.service" />
+      <recent name="org.springframework.context.event" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DynamicProxyTest.testAfterAdvice">
+    <configuration name="DynamicProxyTest.testAfterAdvice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="my-mini-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.test.aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.test.aop" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.test.aop.DynamicProxyTest" />
+      <option name="METHOD_NAME" value="testAfterAdvice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DynamicProxyTest.testBeforeAdvice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="my-mini-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.test.aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.test.aop" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.test.aop.DynamicProxyTest" />
+      <option name="METHOD_NAME" value="testBeforeAdvice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DynamicProxyTest.testCglibDynamicProxy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="my-mini-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.test.aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.test.aop" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.test.aop.DynamicProxyTest" />
+      <option name="METHOD_NAME" value="testCglibDynamicProxy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DynamicProxyTest.testJdkDynamicProxy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="my-mini-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.test.aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.test.aop" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.test.aop.DynamicProxyTest" />
+      <option name="METHOD_NAME" value="testJdkDynamicProxy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DynamicProxyTest.testProxyFactory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="my-mini-spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.springframework.test.aop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.springframework.test.aop" />
+      <option name="MAIN_CLASS_NAME" value="org.springframework.test.aop.DynamicProxyTest" />
+      <option name="METHOD_NAME" value="testProxyFactory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DynamicProxyTest.testAfterAdvice" />
+        <item itemvalue="JUnit.DynamicProxyTest.testProxyFactory" />
+        <item itemvalue="JUnit.DynamicProxyTest.testBeforeAdvice" />
+        <item itemvalue="JUnit.DynamicProxyTest.testCglibDynamicProxy" />
+        <item itemvalue="JUnit.DynamicProxyTest.testJdkDynamicProxy" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="80330f93-2d6d-4ef8-96a7-72f81988548c" name="变更" comment="" />
+      <created>1655693161187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655693161187</updated>
+      <workItem from="1655693163566" duration="27925000" />
+      <workItem from="1657000931699" duration="30496000" />
+      <workItem from="1662341903673" duration="16849000" />
+      <workItem from="1671715311107" duration="1453000" />
+    </task>
+    <task id="LOCAL-00001" summary="实现 bean 的初始化和销毁方法">
+      <created>1655710429876</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655710429876</updated>
+    </task>
+    <task id="LOCAL-00002" summary="实现 bean 作用域 scope，增加 prototype 的支持(还不支持 test)">
+      <created>1656486073649</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656486073649</updated>
+    </task>
+    <task id="LOCAL-00003" summary="实现 FactoryBean">
+      <created>1657003280422</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657003280422</updated>
+    </task>
+    <task id="LOCAL-00004" summary="实现容器事件和事件监听器">
+      <created>1657031034092</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657031034092</updated>
+    </task>
+    <task id="LOCAL-00005" summary="实现基于JDK的动态代理">
+      <created>1662364875893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662364875893</updated>
+    </task>
+    <task id="LOCAL-00006" summary="实现基于CGLIB的动态代理">
+      <created>1662428479798</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662428479798</updated>
+    </task>
+    <task id="LOCAL-00007" summary="实现AOP代理工厂----由AdvisedSupport#proxyTargetClass属性决定使用JDK动态代理还是CGLIB动态代理">
+      <created>1662430317688</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662430317688</updated>
+    </task>
+    <task id="LOCAL-00008" summary="实现BeforeAdvice/AfterAdvice">
+      <created>1662432895673</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662432895673</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现 bean 的初始化和销毁方法" />
+    <MESSAGE value="实现 bean 作用域 scope，增加 prototype 的支持(还不支持 test)" />
+    <MESSAGE value="实现 FactoryBean" />
+    <MESSAGE value="实现容器事件和事件监听器" />
+    <MESSAGE value="实现基于JDK的动态代理" />
+    <MESSAGE value="实现基于CGLIB的动态代理" />
+    <MESSAGE value="实现AOP代理工厂----由AdvisedSupport#proxyTargetClass属性决定使用JDK动态代理还是CGLIB动态代理" />
+    <MESSAGE value="实现BeforeAdvice/AfterAdvice" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现BeforeAdvice/AfterAdvice" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
